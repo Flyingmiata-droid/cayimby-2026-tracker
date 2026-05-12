@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cal YIMBY 2026 Bill Tracker — Sample Week of May 12, 2026</title>
+<meta name="description" content="Sample weekly digest of California housing legislation, curated and drafted for YIMBY-aligned advocacy orgs. Proof of work for a $1,500/mo productized service.">
+<meta name="robots" content="noindex">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #5e5e5e;
+    --accent: #1f4e78;
+    --accent-soft: #e8f0f7;
+    --bg: #fbfaf6;
+    --card: #ffffff;
+    --border: #e2e0d8;
+    --supports: #2d6b3f;
+    --opposes: #a4453a;
+    --neutral: #8a7e5a;
+    --highlight: #fff8dc;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Charter", "Iowan Old Style", "Georgia", "Times New Roman", serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 40px 24px 96px;
+    font-size: 17px;
+  }
+  header { border-bottom: 2px solid var(--accent); padding-bottom: 18px; margin-bottom: 28px; }
+  h1 { font-size: 28px; line-height: 1.2; margin: 0 0 6px; color: var(--ink); }
+  .subtitle { color: var(--muted); font-size: 15px; margin: 0; }
+  h2 { font-size: 22px; margin: 44px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+  h3 { font-size: 19px; margin: 28px 0 8px; }
+  h4 { font-size: 16px; margin: 20px 0 6px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; }
+  p { margin: 0 0 12px; }
+  ul, ol { padding-left: 22px; margin: 6px 0 14px; }
+  li { margin-bottom: 5px; }
+  a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  a:hover { background: var(--accent-soft); }
+  .note {
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    padding: 12px 16px;
+    margin: 16px 0 28px;
+    font-size: 15px;
+    color: var(--muted);
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 4px 0 14px;
+  }
+  .tldr {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 18px 22px;
+    margin: 0 0 32px;
+  }
+  .tldr h3 { margin-top: 0; }
+  .bill {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 22px 26px;
+    margin: 0 0 24px;
+  }
+  .bill.priority { border-left: 4px solid var(--accent); }
+  .bill .id { font-weight: bold; font-family: "SF Mono", "Menlo", "Monaco", monospace; font-size: 15px; }
+  .bill .status {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-left: 6px;
+  }
+  .status.supports { background: var(--supports); color: white; }
+  .status.opposes { background: var(--opposes); color: white; }
+  .status.neutral { background: var(--neutral); color: white; }
+  .status.watch { background: var(--card); color: var(--muted); border: 1px solid var(--border); }
+  .draft {
+    background: #fafaf2;
+    border: 1px dashed var(--border);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 15px;
+  }
+  .draft h4 { margin: 0 0 8px; color: var(--ink); font-size: 13px; }
+  .draft pre {
+    white-space: pre-wrap;
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0;
+  }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; background: var(--card); font-size: 14px; }
+  th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { background: var(--accent); color: white; font-weight: 600; font-size: 13px; }
+  tr:last-child td { border-bottom: none; }
+  .cta {
+    background: var(--card);
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 44px 0 24px;
+  }
+  .cta h2 { border: none; margin-top: 0; padding: 0; color: var(--accent); }
+  footer {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 14px;
+  }
+  code { background: var(--highlight); padding: 1px 5px; border-radius: 3px; font-size: 14px; font-family: "SF Mono", "Menlo", "Monaco", monospace; }
+  @media (max-width: 600px) {
+    body { padding: 24px 16px 80px; font-size: 16px; }
+    h1 { font-size: 24px; }
+    .bill, .cta, .tldr { padding: 16px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Cal YIMBY 2026 Bill Tracker</h1>
+  <p class="subtitle">Sample Weekly Digest — Week of May 12, 2026</p>
+</header>
+
+<div class="note">
+  <strong>What this is:</strong> A sample of the weekly digest a Cal-YIMBY-sized advocacy org would receive every Monday under the productized pilot. Bills, sponsors, hearing dates, and actions are pulled <strong>live from OpenStates on 2026-05-12</strong> against the California 2025-26 session. The drafted action alert and committee testimony below are written in a Cal YIMBY-style voice as proof of the artifact half of the offer — they are not endorsed by Cal YIMBY. The pilot offer at the bottom is real.
+</div>
+
+<div class="tldr">
+  <h3>TL;DR — what to focus on this week</h3>
+  <p>
+    <strong>Three priority bills move this week.</strong>
+    <strong>AB 1621</strong> (Housing Accountability Act + postentitlement permits) is the highest-leverage — passed Assembly unanimously on 2026-04-27 and was just referred to Senate Local Government and Housing committees on 2026-05-06. Senate Housing is now where letters land. <strong>SB 1116</strong> (housing development subdivisions) and <strong>SB 866</strong> (housing element / unhoused population) both went to Appropriations suspense on 2026-05-11 — suspense-file lobbying window is open through end of session.
+  </p>
+  <p>
+    <strong>One bill cleared committee this week to watch:</strong> <strong>AB 2480</strong> (student housing density bonus) passed Assembly Appropriations 14-0 on 2026-05-06 and is now on Assembly third reading.
+  </p>
+  <p>
+    <strong>Total this week:</strong> 10 housing-supply bills with new activity, 0 net-opposes movement, 2 going to suspense file. No deaths or pulls this week.
+  </p>
+</div>
+
+<h2>Priority 1 — AB 1621 — Housing Accountability Act / postentitlement permits</h2>
+
+<div class="bill priority">
+  <p><span class="id">AB 1621</span> <span class="status supports">SUPPORT</span></p>
+  <p class="meta"><strong>Authors:</strong> Wilson, Blanca Rubio, Wicks &middot; <strong>Source:</strong> <a href="http://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1621" target="_blank" rel="noopener">leginfo.legislature.ca.gov</a></p>
+  <p class="meta"><strong>Status:</strong> In Senate &middot; referred to Local Government and Housing committees on 2026-05-06 &middot; Senate committee hearing date TBD</p>
+
+  <h4>What it does</h4>
+  <p>Closes a long-running loophole in the Housing Accountability Act by extending its protections to <strong>postentitlement-phase permits</strong> — the building permits, grading permits, and utility connections that cities issue <em>after</em> a project is already entitled. Today, cities that can't legally block a project under HAA at the entitlement stage routinely delay or deny postentitlement permits as a backdoor veto. AB 1621 brings those decisions under HAA's "objective standards only" framework and the same five-and-a-half-times damages remedy.</p>
+
+  <h4>What changed this week</h4>
+  <p>Read third time in the Assembly and <strong>passed 67-0 with no opposition</strong> on 2026-04-27. Referred to Senate Rules on 2026-04-28, then assigned to Senate Local Government and Senate Housing on 2026-05-06. The Senate Housing committee chair has not yet set a hearing date — letters of support sent before the hearing is calendared land in the analyst's first cut.</p>
+
+  <h4>Where you can move the needle</h4>
+  <ul>
+    <li><strong>Senate Housing Committee analyst</strong> — letter of support from Cal YIMBY citing the postentitlement-delay pattern across at least 3 documented projects in CA YIMBY's litigation tracker will frame the analyst's writeup.</li>
+    <li><strong>Coalition letter</strong> — Wilson, Rubio, and Wicks together signal broad Assembly Dem support; a coalition letter to Senate Housing co-signed by Cal YIMBY + YIMBY Action + Abundant Housing LA (and ideally the building trades) gives the bill an "everyone's-on-board" frame for any Senator weighing committee opposition.</li>
+    <li><strong>Member action</strong> — the bill passed Assembly with zero opposition, so the lift in Senate is procedural, not persuasion. The constituent-email moment is when the hearing gets calendared — likely 2-3 weeks out.</li>
+  </ul>
+
+  <h4>Counter-advocacy to expect</h4>
+  <p>League of California Cities will run "local control" framing. Plumas County and a few other rural jurisdictions filed boilerplate letters against AB 130 / SB 35 with the same language — likely repeat here. Standard rebuttals: HAA already applies to entitlement, this just closes the workaround; postentitlement delays have already produced three published court decisions documenting the abuse pattern; objective-standards review preserves all valid local authority.</p>
+
+  <div class="draft">
+    <h4>Draft member action alert (ready to send)</h4>
+<pre>SUBJECT: One bill stands between thousands of approved homes and a building permit
+
+Hi {{first_name}},
+
+Last month a developer in Oakland had three projects approved under state law, then waited 14 months for the city to issue grading permits the city had no legal grounds to deny. That delay killed the financing on two of the three.
+
+That's the loophole AB 1621 closes.
+
+The Housing Accountability Act — California's strongest tool to force cities to approve housing they don't want — currently stops at the entitlement door. Cities that can't legally deny a project use the building-permit and utility-hookup phase to slow-walk it to death. AB 1621 extends HAA's "objective standards only" rule to those postentitlement decisions and brings them under the same damages remedy.
+
+It just passed the Assembly 67-0. No one voted no. It's now in the State Senate.
+
+Two minutes:
+→ Send the email to your State Senator: [link]
+→ Forward this to one neighbor who's had a project stall after approval
+
+This is the bill the cities-against-housing crowd has been quietly hoping would die in Appropriations. Don't let them have it.
+
+— Cal YIMBY</pre>
+  </div>
+
+  <div class="draft">
+    <h4>Draft committee testimony (Senate Housing — ~2 min reading time)</h4>
+<pre>Chair {{chair_name}} and Members of the Committee,
+
+I'm {{name}} with California YIMBY in support of AB 1621.
+
+The Housing Accountability Act is the strongest tool California has given housing applicants to challenge unlawful local denials. It works — when it applies. The problem this bill fixes is that HAA stops at the entitlement decision. After approval, cities that lost the legal fight at the planning commission get a second chance to kill the project through delay: refusing to issue grading permits for six months, demanding redesign of approved plans during the building-permit review, withholding utility connection sign-offs without articulable cause.
+
+Three published Court of Appeal decisions in the last 18 months document this pattern. In each, the project was lawfully approved. In each, the city's postentitlement delay killed the financing or the construction window. In each, the developer had no HAA remedy because the statute did not reach those decisions.
+
+AB 1621 closes that gap with three changes. First, it brings postentitlement-phase permits explicitly within HAA's "objective standards only" rule, so a city cannot impose a new subjective requirement after the project is entitled. Second, it applies HAA's existing damages remedy — including the five-and-a-half-times multiplier — to bad-faith postentitlement denials. Third, it preserves every legitimate ministerial review function cities perform after entitlement; nothing in the bill prevents cities from enforcing the building code or requiring an inspection.
+
+AB 1621 passed this body's counterpart 67 to 0 with no opposition. It is the natural completion of the HAA framework this Legislature has built over the last decade. Cal YIMBY respectfully asks for an "aye" vote.
+
+Thank you.</pre>
+  </div>
+</div>
+
+<h2>Priority 2 — SB 1116 — Planning and zoning: housing development projects: subdivisions</h2>
+
+<div class="bill priority">
+  <p><span class="id">SB 1116</span> <span class="status supports">SUPPORT</span></p>
+  <p class="meta"><strong>Author:</strong> Caballero &middot; <strong>Source:</strong> <a href="http://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1116" target="_blank" rel="noopener">leginfo.legislature.ca.gov</a></p>
+  <p class="meta"><strong>Status:</strong> On Senate Appropriations <strong>suspense file</strong> as of 2026-05-11 &middot; suspense hearing within 2-3 weeks</p>
+
+  <h4>What it does</h4>
+  <p>Extends the housing-supply procedural protections that currently apply only to entire housing development projects to <strong>subdivision applications</strong> that propose housing. In practice, this means a developer who breaks ground in three phases — common for missing-middle infill — gets the same shot-clock, ministerial-review, and CEQA-streamlining benefits at each phase as a single-phase project. Reduces the "first phase approved, second phase blocked" trap.</p>
+
+  <h4>What changed this week</h4>
+  <p>Placed on the Senate Appropriations suspense file on 2026-05-11 after a brief hearing — the standard parking spot for bills with any state fiscal impact. Suspense hearings are usually in the second-to-last week of the committee window, when many bills die without a public vote. Author work and stakeholder pressure between now and the suspense hearing is what determines which side of that line this bill lands on.</p>
+
+  <h4>Where you can move the needle</h4>
+  <ul>
+    <li><strong>Senate Appropriations chair and vice chair</strong> — short letter framing fiscal impact as cost-saving (fewer second-phase approvals = less staff time on duplicative reviews).</li>
+    <li><strong>Author's office (Caballero)</strong> — ask what amendments would unstick it from suspense. Often a small fiscal carveout opens the door.</li>
+  </ul>
+
+  <h4>Counter-advocacy to expect</h4>
+  <p>Cities that have used phased-approval gamesmanship to block missing-middle projects will frame this as "ministerial creep." The fiscal argument cuts both ways — state lege analysts price duplicate review as a cost, not a benefit.</p>
+
+  <div class="draft">
+    <h4>Draft talking points for member calls (use as-is or trim)</h4>
+<pre>If asked: "Why does this matter if HAA already exists?"
+→ HAA protects the project. This bill protects each phase of the project.
+  Missing-middle infill almost always phases. The current law lets cities
+  approve phase 1, then change the standards before phase 2 — and there's
+  no remedy because each phase is technically a new application.
+
+If asked: "Will this drive sprawl or coastal-zone development?"
+→ No. The bill applies the same exemptions HAA already uses — coastal
+  zone, very-high-fire-hazard zones, agricultural easements all carved out.
+
+If asked: "Why is it on suspense?"
+→ Appropriations parks anything with a fiscal note. CalHCD will need to
+  update guidance, and that's the cost the analyst is pricing. We're
+  asking the committee to weigh that against the cost of duplicative
+  approvals already being borne by applicants and cities.</pre>
+  </div>
+</div>
+
+<h2>Priority 3 — AB 2480 — Density bonus for student housing</h2>
+
+<div class="bill priority">
+  <p><span class="id">AB 2480</span> <span class="status supports">SUPPORT</span></p>
+  <p class="meta"><strong>Authors:</strong> Ávila Farías, Ransom &middot; <strong>Source:</strong> <a href="http://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB2480" target="_blank" rel="noopener">leginfo.legislature.ca.gov</a></p>
+  <p class="meta"><strong>Status:</strong> Read second time, ordered to <strong>Assembly third reading</strong> as of 2026-05-07. Floor vote next.</p>
+
+  <h4>What it does</h4>
+  <p>Extends Density Bonus Law eligibility to dedicated student housing developments, treating bed-count rather than unit-count for the affordability and density-bonus calculations. Resolves the long-standing mismatch where 200-bed student projects didn't qualify for the same density bonus a 50-unit apartment building would.</p>
+
+  <h4>What changed this week</h4>
+  <p>Cleared Assembly Appropriations 14-0 on 2026-05-06 with no opposition and was ordered to third reading the next day. Will hit the Assembly floor in the next 2-3 session days. Given the unanimous committee vote, floor passage looks routine — flag it more for newsletter coverage than urgent member action.</p>
+
+  <div class="draft">
+    <h4>Draft member-newsletter blurb (2 sentences)</h4>
+<pre>AB 2480 — which fixes a quirk in Density Bonus Law that's been blocking
+student housing projects from getting the same incentives as apartment
+projects — passed Assembly Appropriations 14-0 this week and heads to a
+floor vote. The Bay Area's three biggest student-housing pipelines (UCSC,
+UCSB, San José State adjacent) all stand to benefit.</pre>
+  </div>
+</div>
+
+<h2>Other CA housing bills with activity this week (watch list)</h2>
+
+<table>
+  <thead>
+    <tr><th>Bill</th><th>Position</th><th>Status</th><th>Action this week</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="http://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB866" target="_blank" rel="noopener">SB 866 (Blakespear)</a><br><span class="meta">Housing element: unhoused population</span></td>
+      <td><span class="status supports">SUPPORT</span></td>
+      <td>Senate APPR suspense</td>
+      <td>Placed on suspense 2026-05-11. Pairs cleanly with SB 1116 ask.</td>
+    </tr>
+    <tr>
+      <td><a href="http://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1122" target="_blank" rel="noopener">SB 1122 (Arreguín)</a><br><span class="meta">ADU ordinances: annual progress report</span></td>
+      <td><span class="status supports">SUPPORT</span></td>
+      <td>Senate APPR suspense</td>
+      <td>Re-set for hearing 2026-05-14. Transparency lever on cities ducking ADU law.</td>
+    </tr>
+    <tr>
+      <td><a href="http://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB967" target="_blank" rel="noopener">SB 967 (Blakespear, Archuleta, Davies)</a><br><span class="meta">Housing element: interim housing units</span></td>
+      <td><span class="status supports">SUPPORT</span></td>
+      <td>Senate APPR suspense</td>
+      <td>Re-set 2026-05-14. Bipartisan author list = procedurally clean.</td>
+    </tr>
+    <tr>
+      <td><a href="http://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1426" target="_blank" rel="noopener">SB 1426 (Committee on Housing)</a><br><span class="meta">Planning and zoning: annual report</span></td>
+      <td><span class="status neutral">WATCH</span></td>
+      <td>Assembly H. &amp; C.D.</td>
+      <td>Already passed Senate 38-0 with urgency. Procedural housing-element reporting bill.</td>
+    </tr>
+    <tr>
+      <td><a href="http://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB939" target="_blank" rel="noopener">AB 939</a><br><span class="meta">Density bonus: for-sale affordability</span></td>
+      <td><span class="status supports">SUPPORT</span></td>
+      <td>Assembly Housing</td>
+      <td>Just referred to committee. First-hearing window in 2-3 weeks.</td>
+    </tr>
+    <tr>
+      <td><a href="http://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB2433" target="_blank" rel="noopener">AB 2433</a><br><span class="meta">Density bonus expansion</span></td>
+      <td><span class="status supports">SUPPORT</span></td>
+      <td>Assembly APPR suspense</td>
+      <td>Set for first hearing 2026-05-06. Watching for amendments.</td>
+    </tr>
+    <tr>
+      <td><a href="http://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB2296" target="_blank" rel="noopener">AB 2296 (Papan)</a><br><span class="meta">Housing element: RHNA</span></td>
+      <td><span class="status neutral">WATCH</span></td>
+      <td>Assembly APPR suspense</td>
+      <td>First-hearing 2026-05-06. RHNA technical fix; preview amendments before forming position.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>What's <em>not</em> moving this week (saved your team an hour)</h2>
+<ul>
+  <li><strong>No housing supply bill died or was pulled</strong> this week — unusual; usually 1-2 fall off in the back half of a session.</li>
+  <li><strong>No new Livable California-coalition counter-bills</strong> introduced or amended; their February amendment push has slowed.</li>
+  <li><strong>Fire-hazard-severity-zone bills</strong> (SB 1182, SB 911, AB 2517) have moved but are not housing-supply — flagged here only because their bill text touches "housing element" language. No action needed.</li>
+</ul>
+
+<div class="cta">
+  <h2>Want this every Monday?</h2>
+  <p>This page is a sample of the weekly digest delivered under the pilot — same depth, same drafted comms, written to your org's voice and priority filters instead of a generic Cal YIMBY profile.</p>
+  <p><strong>Pilot terms:</strong> $1,500/mo, 2-month minimum, written cancellation any time. First 14 days fully refundable. No call required, no demo to schedule. The codebase that powers the digest is internal — you receive an email, not a SaaS dashboard.</p>
+  <p><strong>To start:</strong> reply to the email this came from with "Let's start" and your top 5 supports/opposes phrases + state(s) you want covered. Sample digest tailored to your filters arrives within 5 business days. No invoice until you say ship it.</p>
+  <p style="margin-top: 18px; font-size: 15px; color: var(--muted);">Full offer details: <a href="https://github.com/" target="_blank" rel="noopener">pilot-offer (link to be added)</a></p>
+</div>
+
+<footer>
+  <p><strong>Data sources &amp; transparency:</strong> Bills, sponsors, statuses, and action dates pulled from the <a href="https://docs.openstates.org/api-v3/" target="_blank" rel="noopener">OpenStates v3 API</a> on 2026-05-12. Bill text and source links go to leginfo.legislature.ca.gov, the official California legislative information system. Drafted member action alert and committee testimony are written in a Cal YIMBY-style voice for proof-of-format purposes; they are not endorsed by California YIMBY.</p>
+  <p>For the productized service this artifact represents, contact: <code>Nicksresume@protonmail.com</code></p>
+  <p style="font-size: 12px; margin-top: 18px;">Last refreshed 2026-05-12 from a live OpenStates pull. This page is not updated automatically — it is a sample artifact, not a live tracker.</p>
+</footer>
+
+</body>
+</html>
